@@ -2,13 +2,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GridTest {
-    private static final int GRID_SIZE = 4;
-    private static final char DEFAULT_CARACTER = ' ';
+    private static final int GRID_SIZE = 2000;
+    private static final char DEFAULT_CARACTER = 'A';
+    private static final char SECONDARY_CARACTER = 'B';
 
     private Grid grid;
 
@@ -23,12 +25,12 @@ public class GridTest {
     }
 
     @Test
-    public void testGetSizeShouldReturnGridSize() {
-        assertEquals(4, grid.getSize());
+    public void testGetSizeShouldReturnMatrixSize() {
+        assertEquals(GRID_SIZE, grid.getSize());
     }
 
     @Test
-    public void voidTestUpdateCellShouldChangeTheValueInTheMatrix(){
+    public void testUpdateCellShouldChangeTheValueInTheMatrix(){
         Point cell = getRandomCell();
 
         grid.updateCell(cell, DEFAULT_CARACTER);
@@ -62,6 +64,41 @@ public class GridTest {
         assertFalse(grid.isInBounds(new Point(GRID_SIZE, 0)));
         assertFalse(grid.isInBounds(new Point(0, GRID_SIZE)));
         assertFalse(grid.isInBounds(new Point(GRID_SIZE, GRID_SIZE)));
+    }
+
+    @Test
+    public void testReadShouldReturnTheSpecifiedRow(){
+        //setup
+
+        int rowIndex = getRandomIndex();
+
+        char[] expectedRow = new char[GRID_SIZE];
+        Arrays.fill(expectedRow, DEFAULT_CARACTER);
+
+        for (int y = 0; y < GRID_SIZE; y++) {
+            grid.updateCell(new Point(rowIndex, y), DEFAULT_CARACTER);
+        }
+
+        assertArrayEquals(expectedRow, grid.readRow(rowIndex));
+    }
+
+    @Test
+    public void testSwapShouldExchangeTheValueOfTwoCells(){
+        Point firstCell = getRandomCell();
+        Point secondCell = getRandomCell();
+
+        grid.updateCell(firstCell, DEFAULT_CARACTER);
+        grid.updateCell(secondCell, SECONDARY_CARACTER);
+
+        grid.swap(firstCell, secondCell);
+
+        assertEquals(DEFAULT_CARACTER, grid.readCell(secondCell));
+        assertEquals(SECONDARY_CARACTER, grid.readCell(firstCell));
+    }
+
+    private int getRandomIndex(){
+        Random rand = new Random();
+        return rand.nextInt(GRID_SIZE);
     }
 
     private Point getRandomCell(){
