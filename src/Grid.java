@@ -14,4 +14,8 @@ public class Grid {
     public int getSize() {
         return grid.length;
     }
+
+    public void updateCell(Point cell, char value) {
+        grid[cell.x][cell.y] = value;
+    }
 }

@@ -7,7 +7,8 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GridTest {
-    private static final  int GRID_SIZE = 4;
+    private static final int GRID_SIZE = 4;
+    private static final char DEFAULT_CARACTER = 'B';
 
     private Grid grid;
 
@@ -24,6 +25,15 @@ public class GridTest {
     @Test
     public void testGetSizeShouldReturnGridSize() {
         assertEquals(4, grid.getSize());
+    }
+
+    @Test
+    public void voidtestUpdateCellShouldChangeTheValueInTheMatrixà(){
+        Point cell = getRandomCell();
+
+        grid.updateCell(cell, DEFAULT_CARACTER);
+
+        assertEquals(DEFAULT_CARACTER, grid.readCell(cell));
     }
 
     private Point getRandomCell(){
