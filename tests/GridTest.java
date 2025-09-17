@@ -47,6 +47,23 @@ public class GridTest {
         }
     }
 
+    @Test
+    public void testIsInBoundsShouldValidateACellPosition(){
+
+        final int MAX_INDEX = GRID_SIZE - 1;
+
+        assertTrue(grid.isInBounds(new Point(0, 0)));
+        assertTrue(grid.isInBounds(new Point(MAX_INDEX, 0)));
+        assertTrue(grid.isInBounds(new Point(0, MAX_INDEX)));
+        assertTrue(grid.isInBounds(new Point(MAX_INDEX, MAX_INDEX)));
+
+        assertFalse(grid.isInBounds(new Point(0,  -1)));
+        assertFalse(grid.isInBounds(new Point(-1, 0)));
+        assertFalse(grid.isInBounds(new Point(GRID_SIZE, 0)));
+        assertFalse(grid.isInBounds(new Point(0, GRID_SIZE)));
+        assertFalse(grid.isInBounds(new Point(GRID_SIZE, GRID_SIZE)));
+    }
+
     private Point getRandomCell(){
         Random random = new Random();
 
