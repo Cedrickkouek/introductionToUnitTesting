@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GridTest {
     private static final int GRID_SIZE = 4;
-    private static final char DEFAULT_CARACTER = 'B';
+    private static final char DEFAULT_CARACTER = ' ';
 
     private Grid grid;
 
@@ -28,12 +28,23 @@ public class GridTest {
     }
 
     @Test
-    public void voidtestUpdateCellShouldChangeTheValueInTheMatrixà(){
+    public void voidTestUpdateCellShouldChangeTheValueInTheMatrix(){
         Point cell = getRandomCell();
 
         grid.updateCell(cell, DEFAULT_CARACTER);
 
         assertEquals(DEFAULT_CARACTER, grid.readCell(cell));
+    }
+
+    @Test
+    public void testFillGridShouldEveryCellWithCharacter(){
+        grid.fillWith(DEFAULT_CARACTER);
+
+        for (int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
+                assertEquals(DEFAULT_CARACTER, grid.readCell(new Point(i, j)));
+            }
+        }
     }
 
     private Point getRandomCell(){
