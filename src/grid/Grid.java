@@ -1,3 +1,5 @@
+package grid;
+
 import java.awt.*;
 
 public class Grid {
