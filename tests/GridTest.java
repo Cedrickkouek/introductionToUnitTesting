@@ -8,7 +8,7 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GridTest {
-    private static final int GRID_SIZE = 2000;
+    private static final int GRID_SIZE = 20000;
     private static final char DEFAULT_CARACTER = 'A';
     private static final char SECONDARY_CARACTER = 'B';
 
