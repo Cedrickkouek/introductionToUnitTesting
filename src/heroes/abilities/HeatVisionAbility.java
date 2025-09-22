@@ -12,8 +12,8 @@ public class HeatVisionAbility extends Ability {
         //Point cell = GridReader.getCellWithSymbol(grid, symbol);
         //grid.updateCell(cell, ' ');
 
-        // Point cell2 = GridReader.getEmptyCell(grid)
-        // grid.updateCell(cell2, symbol)
+//        NormalAbility normalAbility = new NormalAbility();
+//        normalAbility.use(grid);
     }
 
 }

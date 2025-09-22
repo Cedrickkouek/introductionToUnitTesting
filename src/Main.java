@@ -1,6 +1,7 @@
 import heroes.Hero;
 import heroes.abilities.Ability;
 import heroes.abilities.HeatVisionAbility;
+import heroes.abilities.NormalAbility;
 
 import java.util.ArrayList;
 
@@ -11,7 +12,9 @@ public class Main {
         ArrayList<Ability> supermanAbilities = new ArrayList<>();
         supermanAbilities.add(new HeatVisionAbility());
 
+
         ArrayList<Ability> batmanAbilities = new ArrayList<>();
+        batmanAbilities.add(new NormalAbility());
 
         Hero superman = new Hero("Superman", 'S', supermanAbilities);
         Hero batman = new Hero("Batman", 'B', supermanAbilities);
