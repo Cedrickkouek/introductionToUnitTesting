@@ -8,12 +8,14 @@ public class HeatVisionAbility extends Ability {
     }
 
     @Override
-    public void use(Grid grid) {
+    protected void behaviour(Grid grid) {
         //Point cell = GridReader.getCellWithSymbol(grid, symbol);
         //grid.updateCell(cell, ' ');
 
-//        NormalAbility normalAbility = new NormalAbility();
-//        normalAbility.use(grid);
+        //NormalAbility normalAbility = new NormalAbility();
+        //normalAbility.use(grid);
+
+        setUsed(true);
     }
 
 }

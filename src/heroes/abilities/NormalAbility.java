@@ -9,8 +9,10 @@ public class NormalAbility extends Ability {
     }
 
     @Override
-    public void use(Grid grid) {
+    public void behaviour(Grid grid) {
         // Point cell2 = GridReader.getEmptyCell(grid)
         // grid.updateCell(cell2, symbol)
+
+        setUsed(true);
     }
 }

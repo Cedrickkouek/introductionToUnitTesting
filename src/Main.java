@@ -1,4 +1,6 @@
+import heroes.Batman;
 import heroes.Hero;
+import heroes.Superman;
 import heroes.abilities.Ability;
 import heroes.abilities.HeatVisionAbility;
 import heroes.abilities.NormalAbility;
@@ -9,14 +11,9 @@ import java.util.ArrayList;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Ability> supermanAbilities = new ArrayList<>();
-        supermanAbilities.add(new HeatVisionAbility());
 
-        ArrayList<Ability> batmanAbilities = new ArrayList<>();
-        batmanAbilities.add(new NormalAbility());
-
-        Hero superman = new Hero("Superman", 'S', supermanAbilities);
-        Hero batman = new Hero("Batman", 'B', supermanAbilities);
+        Batman batman = new Batman();
+        Superman superman = new Superman();
 
         ArrayList<Hero> heroes = new ArrayList<>();
         heroes.add(batman);
