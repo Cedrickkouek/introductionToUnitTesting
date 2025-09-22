@@ -12,15 +12,23 @@ public class Main {
         ArrayList<Ability> supermanAbilities = new ArrayList<>();
         supermanAbilities.add(new HeatVisionAbility());
 
-
         ArrayList<Ability> batmanAbilities = new ArrayList<>();
         batmanAbilities.add(new NormalAbility());
 
         Hero superman = new Hero("Superman", 'S', supermanAbilities);
         Hero batman = new Hero("Batman", 'B', supermanAbilities);
 
+        ArrayList<Hero> heroes = new ArrayList<>();
+        heroes.add(batman);
+        heroes.add(superman);
+
         while (true){
-            //Ability ability = AbilityReader.(hero);
+            for (Hero hero : heroes) {
+                //Ability ability = AbilityReader.(hero);
+            }
+//            if (grid.checkWinner()){
+//
+//            }
         }
 
     }
